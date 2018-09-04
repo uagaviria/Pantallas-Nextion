@@ -8,11 +8,12 @@ El editor de nextion provee una plataforma de desarrollo de software integrado p
 podemos ir a la pagina de descargas donde encontrarar ejemplos y software necesario para trabajar con dichos dispositivos. 
 ## Mas informacion en: http://www.nextionec.com/descargas.html
 
-Quiero compartir un ejemplo cuyos botones en pantalla envian un dato variable. 
+Quiero compartir un ejemplo cuyos botones en pantalla envian un dato variable. cuenta con dos paginas (page 0 y page 1). Anexo el ejemplo de arduino y el HMI de nextion para que lo abran y lo analicen. la pantalla que estoy usando es de 2.4 pulgadas.
+![Pantalla nextion](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/inicio.png) 
 
 
 
-## El programa y la interface:
+## El programa de arduino:
 
 ```cpp
 #include "Nextion.h" /*Libreria para Pantalla Nexion*/
@@ -24,7 +25,7 @@ NexButton b1 = NexButton(0,6,"b1");
 //pagina 1
 NexButton b0p1 = NexButton(1,1,"b0");
 
-NexTouch *nex_listen_list[] =  // si no adiciona el objeto a esta lista no recibe datos
+NexTouch *nex_listen_list[] =  // si no adiciona el objeto a esta lista no recibe datos el arduino.
 {
 
     &b0p1,
@@ -64,7 +65,7 @@ void b0p1PopCallback(void *ptr)
 
 void setup()
 {
-      nexInit();
+    nexInit();
     b0.attachPop(b0PopCallback);
     b1.attachPop(b1PopCallback);
     b0p1.attachPop(b0p1PopCallback);
@@ -76,7 +77,7 @@ void loop()
 
 ```
 
-![Aplicacion web Hecha en bootstrap y guardada en progme, del esp32](https://github.com/uagaviria/ESP32_WEBSERVER/blob/master/imagenes/app.jpg) 
+
 ![WifiManagerAsync ](https://github.com/uagaviria/ESP32_WEBSERVER/blob/master/imagenes/wifimanager.png)
 
 ### Arduinojson y SPIFFS.

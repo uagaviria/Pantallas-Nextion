@@ -60,10 +60,6 @@ void b0p1PopCallback(void *ptr)
     recvRetNumber(&valorp1);
     Serial.print ("Variable valor0 pagina 1 = ");
     Serial.print(valorp1);
-    // Serial.println();
-    // texto[recvRetString(texto, 100)] = 0;
-    // Serial.print ("Variable texto = ");
-    // Serial.print (texto);
 }
 
 void setup()
@@ -72,7 +68,6 @@ void setup()
     b0.attachPop(b0PopCallback);
     b1.attachPop(b1PopCallback);
     b0p1.attachPop(b0p1PopCallback);
-//     dbSerialPrintln("setup done");
 }
 void loop()
 {

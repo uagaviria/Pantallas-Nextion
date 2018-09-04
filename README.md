@@ -1,13 +1,10 @@
 # PANTALLAS NEXTION
 
 ## Envio de entero desde boton:
-El ESP32 hermano mayor del archi reconocido ESP8266, se encuentran en la lista de procesadores diseñados para IoT
-mas perseguidos por profecionales y aficionados de la programación y la electrónica.
-Una máquina potente que destaca por sus capacidades de comunicación WiFi y Bluetooth.
-
-El ESP32 añade muchas funciones y mejoras respecto al ESP8266, como son mayor potencia, Bluetooth 4.0, encriptación por hadware, sensor de temperatura, sensor hall, sensor táctil, reloj de tiempo real (RTC). más puertos, más buses… ¡más de todo!, Para acabar de redondear y deguastar
-de esta poderosa herramienta. Lo que me atrevo a Decir es que el único inconveniente que podemos tener con este gigante es la limitación de conocimiento. Por eso me he dedicado a investigarlo mas a fondo.
-Por tal motivo. si alguien desea colaborar con el proyecto o hacerme sujerencias lo puede hacer a mi correo electrónico uagaviria@gmail.com.
+Las pantallas de Nextion tienen varios tamaños desde 2.4 hasta 7 pulgadas y tienen en su interfaz una pantalla táctil a color.
+Cuenta con un software especializado para diseñar de manera más fácil una interfaz  para el usuario.
+Las pantallas Nextion son una solución diseñada para complementar las necesidades de sus aplicaciones.
+EL EDITOR DE NEXTION PROVEE UNA PLATAFORMA DE DESARROLLO DE SOFTWARE INTEGRADO PARA TODA LA FAMILIA DE NEXTION.
 
 ## Mas informacion en:
 [aprendiendoarduino  https://aprendiendoarduino.wordpress.com/tag/esp32/](https://aprendiendoarduino.wordpress.com/tag/esp32/)

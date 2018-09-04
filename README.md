@@ -88,36 +88,3 @@ void loop()
 ```
 
 
-![WifiManagerAsync ](https://github.com/uagaviria/ESP32_WEBSERVER/blob/master/imagenes/wifimanager.png)
-
-### Arduinojson y SPIFFS.
-- Desafortunadamente desde Atom no esta implementado subir archivos a la flash del ESP32, solo al  ESP8266. Pero desde el entorno de arduino si añadiendo ciertos archivos.
-una imagen vale mas que mil palabras. Allí vas a poner los archivos .jar que te voy a dar para que puedas subir lo que desees a la flash.
-una vez esten alli vas al entorno de arduino y veras dos nuevas lineas en herramientas. lo veras en la imagen a continuación.
-el ESP32FS y el ESP8266FS.
-[Link de descarga ](https://github.com/uagaviria/ESP32_WEBSERVER/tree/master/SPIFFS_UPLOAD)
-
-
-![Subir archivos a la flash](https://raw.githubusercontent.com/uagaviria/ESP32_WEBSERVER/master/imagenes/spiffs.png)
-
-Una vez cumpliendo con estos requerimientos debemos subir el archivo config.json que se encuentra dentro del proyecto en la carpeta data.
-
-### Cómo usar SPIFFS para ESP32 en el IDE Arduino:
-Sencillamente se ha de crear una carpeta llamada "data" en la carpeta del Sketch y pulsar el menú "Herramientas" --> "ESP32 Sketch Data Upload". En la barra de estado veremos el progreso de la operación.
-Advertencia: ¡Esta operación borra todo el contenido y sube lo que haya en la carpeta data, no conserva los otros archivos si los tiene allí!
-
-```cpp
-// Archivo Config.json que deberas subir.
-{
-  
-  "Usuario": "ssid",
-  "Contrasena": "password",
-  "MqttUsername":"mqttusername",
-  "MqttPassword":"mqttpassword",
-  "ClientId":"clientid",
-  "ConfigPass":"2475"
-}  
-
-```
-
-- El programa principal completo se ha subido al repositorio para ser usado libremente.

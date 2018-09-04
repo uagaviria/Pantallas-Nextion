@@ -8,125 +8,76 @@ El editor de nextion provee una plataforma de desarrollo de software integrado p
 podemos ir a la pagina de descargas donde encontrarar ejemplos y software necesario para trabajar con dichos dispositivos. 
 ## Mas informacion en: http://www.nextionec.com/descargas.html
 
-
-
-[aprendiendoarduino  https://aprendiendoarduino.wordpress.com/tag/esp32/](https://aprendiendoarduino.wordpress.com/tag/esp32/)
+Quiero compartir un ejemplo cuyos botones en pantalla envian un dato variable. 
 
 
 
 ## El programa y la interface:
 
 ```cpp
-//******************************************************************************************************
-// CONFIGURACION DE INTERFACE WEB EN HTML Y BOOTSTRAP.
-// Bueno. no sere el mejor programando en html y algunos diran que estoy cometiendo
-// muchos errores en este codigo, pero la verdad es que funciona a la perfeccion. 
-// fueron varios dias de trabajo, de prueba y error. El resultado lo veran en la imagen de 
-// mas abajo. recibo comentarios o mejoras al respecto.
-//******************************************************************************************************
-const char HTML[] PROGMEM = R"=====(
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<form>
+#include "Nextion.h" /*Libreria para Pantalla Nexion*/
 
-<body style="background-color:#F5F6CE;">
-</body>
+// pagina 0
+NexButton b0 = NexButton(0,4,"b0");
+NexButton b1 = NexButton(0,6,"b1");
 
-<div class="container well">
+//pagina 1
+NexButton b0p1 = NexButton(1,1,"b0");
 
-  <!--TITULO DE FORMULARIO-->
-  <div class="row">
-    <div class="col-xs-12">
-      <center><h2>APLICACION</h2></center>
-    </div>
-  </div>
+NexTouch *nex_listen_list[] =  // si no adiciona el objeto a esta lista no recibe datos
+{
 
+    &b0p1,
+    &b0,
+    &b1,
+    NULL
+};
 
-<div class="form-group">
-  <label for="confirm" class="cols-sm-10 control-label">Ssid Wifi</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='usuario' placeholder="Usuario Wifi" size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-rss-square" style="font-size:36px" aria-hidden="true"  ></i></span>
+uint32_t numeros;
+uint32_t valor;
+uint32_t valorp1;
 
+void b0PopCallback(void *ptr)
+{ 
+    Serial.println();
+    recvRetNumber(&numeros);
+    Serial.print ("Variable numeros = ");
+    Serial.print(numeros);
+}
+   
+void b1PopCallback(void *ptr)
+{ 
+    Serial.println();
+    recvRetNumber(&valor);
+    Serial.print ("Variable valor = ");
+    Serial.print(valor);
 
+}
 
-    </div>
-  </div>
-</div>
+void b0p1PopCallback(void *ptr)
+{ 
+    Serial.println();
+    recvRetNumber(&valorp1);
+    Serial.print ("Variable valor0 pagina 1 = ");
+    Serial.print(valorp1);
+    // Serial.println();
+    // texto[recvRetString(texto, 100)] = 0;
+    // Serial.print ("Variable texto = ");
+    // Serial.print (texto);
+}
 
-<div class="form-group">
-  <label for="confirm" class="cols-sm-2 control-label">Password Wifi</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='contrasena' placeholder="Password Wifi" size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-cogs" style="font-size:36px"></i></span>
-
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="confirm" class="cols-sm-2 control-label">MQTT Username</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='username' placeholder="Username Cayenne"  size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-id-card-o" style="font-size:36px"></i></span>
-
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="confirm" class="cols-sm-2 control-label">MQTT Password</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='password' placeholder="Password Cayenne" size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-lock fa-lg" style="font-size:36px"></i></span>
-
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="confirm" class="cols-sm-2 control-label">client ID</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='id' placeholder="clientID Cayenne" size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-podcast" style="font-size:36px"></i></span>
-
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="confirm" class="cols-sm-2 control-label">Config Code</label>
-  <div class="cols-sm-10">
-    <div class="input-group">
-    <input type='text' class='form-control' name='config' placeholder="Config Code" size="30" maxlength="128" style="background:#E6E6E6" required autofocus/>
-      <span class="input-group-addon"><i class="fa fa-shield" style="font-size:36px"></i></span>
-
-    </div>
-  </div>
-</div>
-<Br>
-
-<input type='submit' value='Enviar' style="width:150px; height:35px>
-
-</form>"
-
-</body>
-</html>
-)=====";        
+void setup()
+{
+      nexInit();
+    b0.attachPop(b0PopCallback);
+    b1.attachPop(b1PopCallback);
+    b0p1.attachPop(b0p1PopCallback);
+//     dbSerialPrintln("setup done");
+}
+void loop()
+{
+   nexLoop(nex_listen_list);
+}       
 
 ```
 

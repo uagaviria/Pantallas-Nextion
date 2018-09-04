@@ -12,7 +12,7 @@ Quiero compartir un ejemplo cuyos botones en pantalla envian un dato variable. c
 
 ![Pantalla nextion](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/inicio.png) 
 ![Pgina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog1.png) 
-
+![Pgina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog2.png)
 
 
 ## El programa de arduino:

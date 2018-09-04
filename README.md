@@ -1,4 +1,6 @@
-# ESP32_WEBSERVER
+# PANTALLAS NEXTION
+
+## Envio de entero desde boton:
 El ESP32 hermano mayor del archi reconocido ESP8266, se encuentran en la lista de procesadores diseñados para IoT
 mas perseguidos por profecionales y aficionados de la programación y la electrónica.
 Una máquina potente que destaca por sus capacidades de comunicación WiFi y Bluetooth.

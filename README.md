@@ -4,7 +4,9 @@
 Las pantallas de Nextion tienen varios tamaños desde 2.4 hasta 7 pulgadas y tienen en su interfaz una pantalla táctil a color.
 Cuenta con un software especializado para diseñar de manera más fácil una interfaz  para el usuario.
 Las pantallas Nextion son una solución diseñada para complementar las necesidades de sus aplicaciones.
-EL EDITOR DE NEXTION PROVEE UNA PLATAFORMA DE DESARROLLO DE SOFTWARE INTEGRADO PARA TODA LA FAMILIA DE NEXTION.
+El editor de nextion provee una plataforma de desarrollo de software integrado para toda la familia de nextion.
+podemos ir a la pagina de descargas donde encontrarar ejemplos y software necesario para trabajar con dichos dispositivos. http://www.nextionec.com/descargas.html
+
 
 ## Mas informacion en:
 [aprendiendoarduino  https://aprendiendoarduino.wordpress.com/tag/esp32/](https://aprendiendoarduino.wordpress.com/tag/esp32/)

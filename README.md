@@ -11,8 +11,16 @@ podemos ir a la pagina de descargas donde encontrarar ejemplos y software necesa
 Quiero compartir un ejemplo cuyos botones en pantalla envian un dato variable. cuenta con dos paginas (page 0 y page 1). Anexo el ejemplo de arduino y el HMI de nextion para que lo abran y lo analicen. la pantalla que estoy usando es de 2.4 pulgadas.
 
 ![Pantalla nextion](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/inicio.png) 
-![Pgina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog1.png) 
-![Pgina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog2.png)
+![Pagina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog1.png) 
+![Pagina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog2.png)
+![Pagina 0](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog3.png)
+
+Presionando n0 pasamos a la pagina 1. (page 1)
+
+![Pagina 1](https://github.com/uagaviria/Pantallas-Nextion/blob/master/Imagenes/prog4.png)
+
+Presionando b1 pasamos a la pagina 0. (page 0)
+
 
 
 ## El programa de arduino:
